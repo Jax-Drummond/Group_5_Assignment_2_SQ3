@@ -71,3 +71,12 @@ Click [here](https://geekpython.in/run-flask-app-from-the-command-line-in-window
 - Choose an image from the test images folder.
 - You will see a preview of the uploaded image.
 - Click on **Submit** button and see the magic.
+
+# Architecture
+```mermaid
+graph TD
+    A[Web Browser] -->|HTTP Requests| B[Flask Web Server]
+    B -->|HTML/JSON Response| A
+    A -->|Import Images| C[User Disk Drive]
+
+```
