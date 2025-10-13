@@ -41,7 +41,7 @@ Download as **[ZIP](https://github.com/Sachin-crypto/Flask_Image_Recognition/arc
 # Setting up Virtual Envrionment
 In your terminal set the current directory to the project folder and run the following commands in sequence:
 ```commandline
-<python 3.10 directory>/python.exe -m venv venv
+py -3.10 -m venv venv
 ```
 ``` commandline
 ./venv/Scripts/activate
