@@ -57,7 +57,7 @@ jobs:
         pytest test_model.py test_main.py
 
   happy-sad-tests:
-    needs: pylint
+    needs: unit-tests
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
@@ -75,7 +75,7 @@ jobs:
 
 # This is here for when we write the acceptance tests
 # acceptance-tests:
-#     needs: pylint
+#     needs: happy-sad-tests
 #     runs-on: ubuntu-latest
 #     steps:
 #     - uses: actions/checkout@v4
