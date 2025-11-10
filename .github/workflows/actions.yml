@@ -56,5 +56,3 @@ jobs:
     - name: Run unit tests
       run: |
         pytest test_model.py
-
-      
