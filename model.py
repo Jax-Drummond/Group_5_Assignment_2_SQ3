@@ -5,8 +5,13 @@ import numpy as np
 from PIL import Image
 
 # Loading model
-model = load_model("digit_model.h5")
+model = None
 
+def get_model():
+    global model
+    if model is None:
+        model = load_model("digit_model.h5")
+    return model
 
 # Preparing and pre-processing the image
 def preprocess_img(img_path):
@@ -19,5 +24,5 @@ def preprocess_img(img_path):
 
 # Predicting function
 def predict_result(predict):
-    pred = model.predict(predict)
+    pred = get_model().predict(predict)
     return np.argmax(pred[0], axis=-1)
