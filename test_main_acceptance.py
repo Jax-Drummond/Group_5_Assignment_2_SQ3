@@ -3,6 +3,7 @@ import os
 import pytest
 from app import app
 from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 
@@ -35,7 +36,13 @@ def start_flask_server():
 # The image file is valid and is displayed in a preview box below the choose file button.
 def test_import_valid_image_shows_preview():
 	# Setup
-    driver = webdriver.Chrome()
+    chrome_options = Options()
+    chrome_options.add_argument("--headless=new") # Run without a UI
+    chrome_options.add_argument("--no-sandbox") # bypass OS security model
+    chrome_options.add_argument("--disable-dev-shm-usage") # overcome limited resource problems
+    chrome_options.add_argument("--window-size=1920,1080") # prevent elements from being hidden
+
+    driver = webdriver.Chrome(chrome_options)
 
     # Arrange
     preview_image = None
@@ -68,7 +75,13 @@ def test_import_valid_image_shows_preview():
 # The website takes the user to the prediction page and informs them that the file could not be processed.
 def test_import_invalid_image_and_submit_shows_error():
 	# Setup
-    driver = webdriver.Chrome()
+    chrome_options = Options()
+    chrome_options.add_argument("--headless=new") # Run without a UI
+    chrome_options.add_argument("--no-sandbox") # bypass OS security model
+    chrome_options.add_argument("--disable-dev-shm-usage") # overcome limited resource problems
+    chrome_options.add_argument("--window-size=1920,1080") # prevent elements from being hidden
+
+    driver = webdriver.Chrome(chrome_options)
 
     # Arrange
     error_message = None
