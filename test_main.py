@@ -36,7 +36,7 @@ def test_prediction_with_valid_file_shows_prediction(client):
 	}
 
 	response = client.post("/prediction", content_type="multipart/form-data", data=image_data)
-	assert b"Prediction" in response.data
+	assert b"Prediction1938389" in response.data
 
 def test_prediction_with_invalid_file_shows_error_messages(client):
 	blank_file = io.BytesIO(b"")
