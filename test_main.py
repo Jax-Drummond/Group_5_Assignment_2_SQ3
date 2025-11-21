@@ -24,7 +24,7 @@ def test_home_page_has_title(client):
 
 def test_home_page_has_description(client):
 	response = client.get('/')
-	assert b"Aaaaaaaaa webapp to detect a digit using hand sign language." in response.data
+	assert b"A webapp to detect a digit using hand sign language." in response.data
 
 def test_prediction_with_valid_file_shows_prediction(client):
 	image = Image.open("test_images/0/Sign 0 (21).jpeg")
@@ -36,7 +36,7 @@ def test_prediction_with_valid_file_shows_prediction(client):
 	}
 
 	response = client.post("/prediction", content_type="multipart/form-data", data=image_data)
-	assert b"Prediction1938389" in response.data
+	assert b"Prediction" in response.data
 
 def test_prediction_with_invalid_file_shows_error_messages(client):
 	blank_file = io.BytesIO(b"")
