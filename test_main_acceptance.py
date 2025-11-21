@@ -28,7 +28,7 @@ def start_flask_server():
 #
 # Test Steps:
 # 1. Click on the choose file button
-# 2. Navigate to the image file 
+# 2. Navigate to the image file
 # 3. Select the file and import it
 #
 # Expected Result:
@@ -36,7 +36,7 @@ def start_flask_server():
 def test_import_valid_image_shows_preview():
 	# Setup
     driver = webdriver.Chrome()
-    
+
     # Arrange
     preview_image = None
     driver.get("http://127.0.0.1:5000")
@@ -44,7 +44,7 @@ def test_import_valid_image_shows_preview():
     # Act
     file_input = driver.find_element(By.CSS_SELECTOR, "input[type='file']")
     file_input.send_keys(os.path.abspath("test_images/0/Sign 0 (21).jpeg"))
-	
+
     preview_image = driver.find_element(By.ID, "imageResult")
 
     # Assert
@@ -69,7 +69,7 @@ def test_import_valid_image_shows_preview():
 def test_import_invalid_image_and_submit_shows_error():
 	# Setup
     driver = webdriver.Chrome()
-    
+
     # Arrange
     error_message = None
     driver.get("http://127.0.0.1:5000")
@@ -77,7 +77,7 @@ def test_import_invalid_image_and_submit_shows_error():
     # Act
     file_input = driver.find_element(By.CSS_SELECTOR, "input[type='file']")
     file_input.send_keys(os.path.abspath("Readme.md"))
-	
+
     submit_button = driver.find_element(By.CLASS_NAME, "btn.btn-primary.my-3")
     submit_button.submit()
 
